@@ -12,21 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2021_05_03_110057) do
 
-  create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.date "date"
-    t.integer "turn"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "point"
     t.integer "rank"
+    t.date "date"
+    t.integer "turn"
     t.bigint "user_id"
-    t.bigint "game_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["game_id"], name: "index_records_on_game_id"
     t.index ["user_id"], name: "index_records_on_user_id"
   end
 
@@ -36,4 +29,5 @@ ActiveRecord::Schema.define(version: 2021_05_03_110057) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "records", "users"
 end

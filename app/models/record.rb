@@ -1,4 +1,5 @@
 class Record < ApplicationRecord
   belongs_to :user
-  belongs_to :game
+
+  validates :points, :rank, :date, :turn, presence: true
 end

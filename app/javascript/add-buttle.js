@@ -1,10 +1,10 @@
-function battle () {
-  const record = document.getElementById('record');
-  const addBattle = document.getElementById('add-battle');
+// function battle () {
+//   const record = document.getElementById('record');
+//   const addBattle = document.getElementById('add-battle');
 
-  addBattle.addEventListener('click', () => {
-    console.log('イベント')
-  });
-}
+//   addBattle.addEventListener('click', () => {
+//     console.log('イベント')
+//   });
+// }
 
-window.addEventListener('load', battle);
+// window.addEventListener('load', battle);
