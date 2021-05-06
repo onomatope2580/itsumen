@@ -3,8 +3,9 @@ class CreateRecords < ActiveRecord::Migration[6.0]
     create_table :records do |t|
       t.integer :point
       t.integer :rank
-      t.references :user
-      t.references :game
+      t.date :date
+      t.integer :turn
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end

@@ -1,0 +1,25 @@
+<div class="page">
+  <div class="members">
+    <div class="side-tag"></div>
+    <div class="member"><%= link_to "末吉", "#", class:"person" %></div>
+    <div class="member"><%= link_to "田村", "#", class:"person" %></div>
+    <div class="member"><%= link_to "濱田", "#", class:"person" %></div>
+    <div class="member"><%= link_to "山口", "#", class:"person" %></div>
+  </div>
+
+  
+  <div class="records">
+    <%= form_with model: @record, local: true do |f| %>
+      <div class="record">
+        <%# <span class="date"><%= @today %></span>
+        <span class="turn"><%= @turn %></span> %>
+        <div class="game-point">
+           <%# <%= f.text_field :point, class:"point-box" %>
+           <%# <%= f.text_field :point, class:"point-box" %>
+           <%# <%= f.text_field :point, class:"point-box" %>
+           <%# <%= f.text_field :point, class:"point-box" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

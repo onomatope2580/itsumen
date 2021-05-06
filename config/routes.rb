@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root to: "records#index"
-  resources :recrods, only: [:index, :show]
+  resources :records, only: [:index, :new, :create]
   resources :users, only: :show
 end
