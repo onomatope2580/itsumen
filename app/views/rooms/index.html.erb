@@ -13,12 +13,28 @@
       <div class="liquidation"></div>
     </div> %>
     <div class="add-record">
-      <%= link_to "勝負を追加",  new_record_path, id:"add-battle", class:"add-battle" %>
+      <%= link_to "対局を追加",  new_room_path, id:"add-battle", class:"add-battle" %>
     </div>
   </div>
 
-  <div class="totals">
-    <div class="total">合計</div>
-    <div class="average">平均順位</div>
+  <div class="results">
+    <div class="total">
+      <div>合計</div>
+      <ul class="totals">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="average">
+      <div>平均順位</div>
+      <ul class="averages">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
   </div>
 </div>

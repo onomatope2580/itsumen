@@ -4,5 +4,5 @@ class Room < ApplicationRecord
   has_many :hamadas
   has_many :yamaguchis
 
-  validates :number, :date
+  validates :number, :date, presence: true
 end
