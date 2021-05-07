@@ -10,24 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_03_110057) do
+ActiveRecord::Schema.define(version: 2021_05_06_093214) do
 
-  create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "point"
-    t.integer "rank"
-    t.date "date"
-    t.integer "turn"
-    t.bigint "user_id"
+  create_table "hamadas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "h_point", null: false
+    t.integer "h_rank", null: false
+    t.integer "turn", null: false
+    t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_records_on_user_id"
+    t.index ["room_id"], name: "index_hamadas_on_room_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "name"
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "number", null: false
+    t.date "date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "records", "users"
+  create_table "sueyoshis", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "s_point", null: false
+    t.integer "s_rank", null: false
+    t.integer "turn", null: false
+    t.bigint "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_sueyoshis_on_room_id"
+  end
+
+  create_table "tamuras", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "t_point", null: false
+    t.integer "t_rank", null: false
+    t.integer "turn", null: false
+    t.bigint "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_tamuras_on_room_id"
+  end
+
+  create_table "yamaguchis", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "y_point", null: false
+    t.integer "y_rank", null: false
+    t.integer "turn", null: false
+    t.bigint "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_yamaguchis_on_room_id"
+  end
+
+  add_foreign_key "hamadas", "rooms"
+  add_foreign_key "sueyoshis", "rooms"
+  add_foreign_key "tamuras", "rooms"
+  add_foreign_key "yamaguchis", "rooms"
 end

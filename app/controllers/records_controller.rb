@@ -5,8 +5,6 @@ class RecordsController < ApplicationController
   end
 
   def new
-    @today = Date.today
-    @record = Record.new
   end
 
   def create
