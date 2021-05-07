@@ -1,0 +1,62 @@
+.page-title{
+  height: 20%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.page-title-text{
+  font-size: 40px;
+}
+
+.back-page{
+  padding-top: 20px;
+}
+
+.back{
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  border: 1px solid black;
+  padding: 5px;
+  background-color: khaki;
+  border-radius: 5px;
+}
+
+.form-with{
+  height: 80%;
+}
+
+.form{
+  height: 33%;
+  display: flex;
+  justify-content: center;
+}
+
+.label{
+  font-size: 30px;
+}
+
+.text{
+  margin-left: 20px;
+}
+
+.text-form{
+  font-size: 30px;
+  padding-left: 10px;
+  letter-spacing: 5px;
+}
+
+.number{
+  width: 150px;
+}
+
+.submit{
+  font-size: 30px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: chartreuse;
+  text-decoration: none;
+  color: blue;
+  cursor: pointer;
+}

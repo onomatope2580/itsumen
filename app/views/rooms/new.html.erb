@@ -1,0 +1,20 @@
+<div class="page">
+  <div class="page-title">
+    <div class="page-title-text">対局作成</div>
+    <div class="back-page"><%= link_to "戻る", root_path, class:"back" %></div>
+  </div>
+
+  <%= form_with model: @room, class:"form-with", local: true do |f| %>
+    <div class="form">
+      <div class="content"><%= f.label :date, "対局の日付", class:"label" %></div>
+      <div class="content text"><%= f.date_field :date, class:"text-form" %></div>
+    </div>
+    <div class="form">
+      <div class="content"><%= f.label :number, "部屋番号(半角数字)　L", class:"label" %></div>
+      <div class="content text"><%= f.text_field :number, class:"text-form number" %></div>
+    </div>
+    <div class="form">
+      <div class="content"><%= f.submit "新規対局を作成", class:"submit" %></div>
+    </div>
+  <% end %>
+</div>
