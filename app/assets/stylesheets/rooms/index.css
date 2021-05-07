@@ -4,7 +4,7 @@
 }
 
 .members{
-  height: 10vh;
+  height: 10%;
   display: flex;
   justify-content: space-around;
 }
@@ -26,9 +26,31 @@
 }
 
 .records{
-  height: 80%;
+  height: 65%;
   border: 2px solid black;
   overflow: scroll;
+}
+
+.record{
+  height: 20%;
+  border-bottom: 1px solid black; 
+}
+
+.top-bar{
+  height: 50%;
+  border-bottom: 1px dashed black;
+  display: flex;
+  justify-content: space-around;
+}
+
+.under-bar{
+  height: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.point{
+  border-left: 1px solid black;
 }
 
 .add-record{
@@ -44,4 +66,31 @@
   background-color: chartreuse;
   text-decoration: none;
   color: blue;
+}
+
+.results{
+  height: 15%;
+}
+
+.result{
+  display: flex;
+  justify-content: space-around;
+}
+
+.total{
+  height: 50%;
+}
+
+.add{
+  height: 10%;
+}
+
+.side-tag{
+  text-align: center;
+  padding-top: 10px;
+}
+
+.num{
+  padding-top: 10px;
+  letter-spacing: 3px;
 }

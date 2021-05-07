@@ -7,34 +7,48 @@
     <div class="member"><%= link_to "山口", "#", class:"person" %></div>
   </div>
 
-  <div class="records" id="records">
-    <%# <div class="record" id="record">
-      <div class="point"></div>
-      <div class="liquidation"></div>
-    </div> %>
-    <div class="add-record">
-      <%= link_to "対局を追加",  new_room_path, id:"add-battle", class:"add-battle" %>
+  <div class="records">
+    <%# ↓ここを繰り返す %>
+    <div class="record">
+      <div class="top-bar">
+        <div class="side-tag">日付</div>
+        <div class="member point num">点数</div>
+        <div class="member point num">点数</div>
+        <div class="member point num">点数</div>
+        <div class="member point num">点数</div>
+      </div>
+      <div class="under-bar">
+        <div class="side-tag">精</div>
+        <div class="member point num">清算</div>
+        <div class="member point num">清算</div>
+        <div class="member point num">清算</div>
+        <div class="member point num">清算</div>
+      </div>
     </div>
+    <%# ↑ここまで繰り返す %>
+    
   </div>
 
   <div class="results">
-    <div class="total">
-      <div>合計</div>
-      <ul class="totals">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
+    <div class="result total">
+      <div class="side-tag">合計</div>
+      <div class="member num">点数</div>
+      <div class="member num">点数</div>
+      <div class="member num">点数</div>
+      <div class="member num">点数</div>
     </div>
-    <div class="average">
-      <div>平均順位</div>
-      <ul class="averages">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
+    <div class="result">
+      <div class="side-tag">平均順位</div>
+      <div class="member num">点数</div>
+      <div class="member num">点数</div>
+      <div class="member num">点数</div>
+      <div class="member num">点数</div>
+    </div>
+  </div>
+
+  <div class="add">
+    <div class="add-record">
+      <%= link_to "対局を追加",  new_room_path, id:"add-battle", class:"add-battle" %>
     </div>
   </div>
 </div>
