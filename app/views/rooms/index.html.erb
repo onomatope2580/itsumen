@@ -9,24 +9,29 @@
 
   <div class="records">
     <%# ↓ここを繰り返す %>
-    <div class="record">
-      <div class="top-bar">
-        <div class="side-tag">日付</div>
-        <div class="member point num">点数</div>
-        <div class="member point num">点数</div>
-        <div class="member point num">点数</div>
-        <div class="member point num">点数</div>
-      </div>
-      <div class="under-bar">
-        <div class="side-tag">精</div>
-        <div class="member point num">清算</div>
-        <div class="member point num">清算</div>
-        <div class="member point num">清算</div>
-        <div class="member point num">清算</div>
-      </div>
-    </div>
+    <% unless @rooms.empty? %>
+      <% @rooms.each do |room| %>
+        <a href="#" class="to-records">
+          <div class="record">
+            <div class="top-bar">
+              <div class="side-tag"><%= room.date %></div>
+              <div class="member point num">点数</div>
+              <div class="member point num">点数</div>
+              <div class="member point num">点数</div>
+              <div class="member point num">点数</div>
+            </div>
+            <div class="under-bar">
+              <div class="side-tag">清</div>
+              <div class="member point num">清算</div>
+              <div class="member point num">清算</div>
+              <div class="member point num">清算</div>
+              <div class="member point num">清算</div>
+            </div>
+          </div>
+        </a>
+      <% end %>
+    <% end %>
     <%# ↑ここまで繰り返す %>
-    
   </div>
 
   <div class="results">

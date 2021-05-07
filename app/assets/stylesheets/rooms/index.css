@@ -10,11 +10,11 @@
 }
 
 .side-tag{
-  width: 10%;
+  width: 18%;
 }
 
 .member{
-  width: 30%;
+  width: 28%;
   text-align: center;
 }
 
@@ -33,7 +33,7 @@
 
 .record{
   height: 20%;
-  border-bottom: 1px solid black; 
+  border-bottom: 2px solid black; 
 }
 
 .top-bar{
@@ -70,6 +70,7 @@
 
 .results{
   height: 15%;
+  border: none;
 }
 
 .result{
@@ -93,4 +94,9 @@
 .num{
   padding-top: 10px;
   letter-spacing: 3px;
+}
+
+.to-records{
+  text-decoration: none;
+  color: black;
 }
