@@ -1,0 +1,16 @@
+.r-index{
+  height: 10%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.r-records{
+  height: 60%;
+  border: 2px solid black;
+  overflow: scroll;
+}
+
+.r-results{
+  height: 10%;
+  border: none;
+}
