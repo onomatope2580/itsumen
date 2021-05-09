@@ -1,4 +1,9 @@
 <div class="page">
+  <div class="page-title">
+    <div class="page-title-text">１半荘目の結果</div>
+    <div class="back-page"><%= link_to "#{@room.date}の一覧に戻る", room_records_path(@room.id), class:"back" %></div>
+  </div>
+
   <div class="members">
     <div class="side-tag"></div>
     <div class="member"><%= link_to "末吉", "#", class:"person" %></div>
@@ -7,19 +12,25 @@
     <div class="member"><%= link_to "山口", "#", class:"person" %></div>
   </div>
 
-  
-  <div class="records">
-    <%= form_with model: @record, local: true do |f| %>
-      <div class="record">
-        <%# <span class="date"><%= @today %></span>
-        <span class="turn"><%= @turn %></span> %>
-        <div class="game-point">
-           <%# <%= f.text_field :point, class:"point-box" %>
-           <%# <%= f.text_field :point, class:"point-box" %>
-           <%# <%= f.text_field :point, class:"point-box" %>
-           <%# <%= f.text_field :point, class:"point-box" %>
-        </div>
+  <%= form_with class:"record-form", local: true do |f| %>
+    <div class="record-boxes">
+      <div class="top-bar">
+        <div class="tag-title">点数</div>
+        <div class="member point"><%= f.text_field :s_point, class:"point-box", id:"s-point", autofocus: true %></div>
+        <div class="member point"><%= f.text_field :t_point, class:"point-box", id:"t-point" %></div>
+        <div class="member point"><%= f.text_field :h_point, class:"point-box", id:"h-point" %></div>
+        <div class="member point"><%= f.text_field :y_point, class:"point-box", id:"y-point" %></div>
       </div>
-    <% end %>
-  </div>
+      <div class="under-bar">
+        <div class="tag-title">順位</div>
+        <div class="member point numb" id="rank">1位</div>
+        <div class="member point numb" id="rank">1位</div>
+        <div class="member point numb" id="rank">1位</div>
+        <div class="member point numb" id="rank">1位</div>
+      </div>
+    </div>
+    <div class="form record-submit">
+      <div class="content"><%= f.submit "この半荘の結果を登録", class:"submit" %></div>
+    </div>
+  <% end %>
 </div>
