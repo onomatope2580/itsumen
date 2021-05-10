@@ -1,7 +1,7 @@
 <div class="page">
   <div class="page-title">
     <div class="page-title-text">１半荘目の結果</div>
-    <div class="back-page"><%= link_to "#{@room.date}の一覧に戻る", room_records_path(@room.id), class:"back" %></div>
+    <div class="back-page"><%= link_to "#{@room.date}の対局に戻る", room_records_path(@room.id), class:"back" %></div>
   </div>
 
   <div class="members">
@@ -12,7 +12,7 @@
     <div class="member"><%= link_to "山口", "#", class:"person" %></div>
   </div>
 
-  <%= form_with class:"record-form", id:"record-form", local: true do |f| %>
+  <%= form_with model: @record, ulr: records_path(room_id: @room.id), class:"record-form", id:"record-form", local: true do |f| %>
     <div class="record-boxes">
       <div class="top-bar">
         <div class="tag-title">点数</div>
@@ -36,5 +36,7 @@
     <%= f.text_field :t_rank, class:"rank-box", id:"t-rank-box" %>
     <%= f.text_field :h_rank, class:"rank-box", id:"h-rank-box" %>
     <%= f.text_field :y_rank, class:"rank-box", id:"y-rank-box" %>
+    <input class="rank-box" name="turn" value="1">
+    <input class="rank-box" name="room_id" value="<%= @room.id %>">
   <% end %>
 </div>
