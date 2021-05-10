@@ -35,3 +35,7 @@
 .record-submit{
   align-items: center;
 }
+
+.rank-box{
+  display: none;
+}

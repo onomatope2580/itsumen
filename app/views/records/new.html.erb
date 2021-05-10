@@ -12,7 +12,7 @@
     <div class="member"><%= link_to "山口", "#", class:"person" %></div>
   </div>
 
-  <%= form_with class:"record-form", local: true do |f| %>
+  <%= form_with class:"record-form", id:"record-form", local: true do |f| %>
     <div class="record-boxes">
       <div class="top-bar">
         <div class="tag-title">点数</div>
@@ -23,14 +23,18 @@
       </div>
       <div class="under-bar">
         <div class="tag-title">順位</div>
-        <div class="member point numb" id="rank">1位</div>
-        <div class="member point numb" id="rank">1位</div>
-        <div class="member point numb" id="rank">1位</div>
-        <div class="member point numb" id="rank">1位</div>
+        <div class="member point numb"><span class="rank" id="s-rank">1</span>位</div>
+        <div class="member point numb"><span class="rank" id="t-rank">1</span>位</div>
+        <div class="member point numb"><span class="rank" id="h-rank">1</span>位</div>
+        <div class="member point numb"><span class="rank" id="y-rank">1</span>位</div>
       </div>
     </div>
     <div class="form record-submit">
       <div class="content"><%= f.submit "この半荘の結果を登録", class:"submit" %></div>
     </div>
+    <%= f.text_field :s_rank, class:"rank-box", id:"s-rank-box" %>
+    <%= f.text_field :t_rank, class:"rank-box", id:"t-rank-box" %>
+    <%= f.text_field :h_rank, class:"rank-box", id:"h-rank-box" %>
+    <%= f.text_field :y_rank, class:"rank-box", id:"y-rank-box" %>
   <% end %>
 </div>
