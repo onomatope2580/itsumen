@@ -19,10 +19,10 @@
         <div class="r-record">
           <div class="r-top-bar">
             <div class="side-tag"><%= sueyoshi.turn %>半荘目</div>
-            <div class="member point num"><%= sueyoshi.s_point %></div>
-            <div class="member point num"><%= Tamura.find(sueyoshi.id).t_point %></div>
-            <div class="member point num"><%= Hamada.find(sueyoshi.id).h_point %></div>
-            <div class="member point num"><%= Yamaguchi.find(sueyoshi.id).y_point %></div>
+            <div class="member point num"><span class="<%= "red" if sueyoshi.s_point < 0 %>"><%= sueyoshi.s_point %></span></div>
+            <div class="member point num"><span class="<%= "red" if Tamura.find(sueyoshi.id).t_point < 0 %>"><%= Tamura.find(sueyoshi.id).t_point %></span></div>
+            <div class="member point num"><span class="<%= "red" if Hamada.find(sueyoshi.id).h_point < 0 %>"><%= Hamada.find(sueyoshi.id).h_point %></span></div>
+            <div class="member point num"><span class="<%= "red" if Yamaguchi.find(sueyoshi.id).y_point < 0 %>"><%= Yamaguchi.find(sueyoshi.id).y_point %></span></div>
           </div>
         </div>
       <% end %>
@@ -33,10 +33,10 @@
   <div class="r-results">
     <div class="result total">
       <div class="side-tag">合計</div>
-      <div class="member num"><%= @s_today_total %></div>
-      <div class="member num"><%= @t_today_total %></div>
-      <div class="member num"><%= @h_today_total %></div>
-      <div class="member num"><%= @y_today_total %></div>
+      <div class="member num"><span class="<%= "red" if @s_today_total < 0 %>"><%= @s_today_total %></span></div>
+      <div class="member num"><span class="<%= "red" if @t_today_total < 0 %>"><%= @t_today_total %></span></div>
+      <div class="member num"><span class="<%= "red" if @h_today_total < 0 %>"><%= @h_today_total %></span></div>
+      <div class="member num"><span class="<%= "red" if @y_today_total < 0 %>"><%= @y_today_total %></span></div>
     </div>
   </div>
 
