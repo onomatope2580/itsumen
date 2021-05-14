@@ -1,16 +1,19 @@
 class RecordsController < ApplicationController
-  require 'date'
 
   def index
     @room = Room.find(params[:room_id])
     @sueyoshis = @room.sueyoshis.all
-    @tamuras = @room.tamuras.all
-    @hamadas = @room.hamadas.all
-    @yamaguchis = @room.yamaguchis.all
+    
+    @s_today_total = @sueyoshis.all.sum(:s_point)
+    @t_today_total = @room.tamuras.all.sum(:t_point)
+    @h_today_total = @room.hamadas.all.sum(:h_point)
+    @y_today_total = @room.yamaguchis.all.sum(:y_point)
   end
 
   def new
     @room = Room.find(params[:room_id])
+    @sueyoshis = @room.sueyoshis.all
+    @sueyoshi = @room.sueyoshis.order(updated_at: :desc).limit(1)
     @record = Record.new
   end
 
