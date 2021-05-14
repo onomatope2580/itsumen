@@ -14,17 +14,29 @@
 
   <div class="r-records">
     <%# ↓ここを繰り返す %>
-    
+    <% unless @sueyoshis.empty? %>
+      <% @sueyoshis.each do |sueyoshi| %>
+        <div class="r-record">
+          <div class="r-top-bar">
+            <div class="side-tag"><%= sueyoshi.turn %>半荘目</div>
+            <div class="member point num"><%= sueyoshi.s_point %></div>
+            <div class="member point num"><%= Tamura.find(sueyoshi.id).t_point %></div>
+            <div class="member point num"><%= Hamada.find(sueyoshi.id).h_point %></div>
+            <div class="member point num"><%= Yamaguchi.find(sueyoshi.id).y_point %></div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
     <%# ↑ここまで繰り返す %>
   </div>
 
   <div class="r-results">
     <div class="result total">
       <div class="side-tag">合計</div>
-      <div class="member num">点数</div>
-      <div class="member num">点数</div>
-      <div class="member num">点数</div>
-      <div class="member num">点数</div>
+      <div class="member num"><%= @s_today_total %></div>
+      <div class="member num"><%= @t_today_total %></div>
+      <div class="member num"><%= @h_today_total %></div>
+      <div class="member num"><%= @y_today_total %></div>
     </div>
   </div>
 

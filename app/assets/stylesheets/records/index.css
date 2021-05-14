@@ -14,3 +14,14 @@
   height: 10%;
   border: none;
 }
+
+.r-record{
+  height: 10%;
+  border-bottom: 2px solid black; 
+}
+
+.r-top-bar{
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}
