@@ -1,6 +1,12 @@
 <div class="page">
   <div class="page-title">
-    <div class="page-title-text">１半荘目の結果</div>
+    <% if @sueyoshis.empty? %>
+      <div class="page-title-text">1半荘目の結果</div>
+    <% else %>
+      <% @sueyoshi.each do |sueyoshi| %>
+        <div class="page-title-text"><%= sueyoshi.turn + 1 %>半荘目の結果</div>
+      <% end %>
+    <% end %>
     <div class="back-page"><%= link_to "#{@room.date}の対局に戻る", room_records_path(@room.id), class:"back" %></div>
   </div>
 
@@ -36,7 +42,13 @@
     <%= f.text_field :t_rank, class:"rank-box", id:"t-rank-box" %>
     <%= f.text_field :h_rank, class:"rank-box", id:"h-rank-box" %>
     <%= f.text_field :y_rank, class:"rank-box", id:"y-rank-box" %>
-    <input class="rank-box" name="turn" value="1">
+    <% if @sueyoshis.empty? %>
+      <input class="rank-box" name="turn" value="1">
+    <% else %>
+      <% @sueyoshi.each do |sueyoshi| %>
+        <input class="rank-box" name="turn" value="<%= sueyoshi.turn + 1 %>">
+      <% end %>
+    <% end %>
     <input class="rank-box" name="room_id" value="<%= @room.id %>">
   <% end %>
 </div>

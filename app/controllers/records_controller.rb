@@ -11,6 +11,8 @@ class RecordsController < ApplicationController
 
   def new
     @room = Room.find(params[:room_id])
+    @sueyoshis = @room.sueyoshis.all
+    @sueyoshi = @room.sueyoshis.order(updated_at: :desc).limit(1)
     @record = Record.new
   end
 
