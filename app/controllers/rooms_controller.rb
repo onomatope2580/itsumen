@@ -1,5 +1,4 @@
 class RoomsController < ApplicationController
-  require 'date'
 
   def index
     @rooms = Room.all.order("created_at DESC")
