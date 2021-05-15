@@ -99,4 +99,17 @@
 .to-records{
   text-decoration: none;
   color: black;
+  border: 1px solid black;
+  padding: 4px;
+  background-color: rgb(238, 206, 238);
+  border-radius: 3px;
 }
+
+.text-field{
+  border: none;
+  background-color: rgba(248, 248, 255, 0);
+  text-align: center;
+  font-size: 15px;
+}
+
+
