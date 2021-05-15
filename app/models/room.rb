@@ -3,6 +3,7 @@ class Room < ApplicationRecord
   has_many :tamuras
   has_many :hamadas
   has_many :yamaguchis
+  has_many :comments
 
   with_options presence: true do
     validates :number, format: {with: /\d{4,4}/}

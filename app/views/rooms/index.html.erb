@@ -11,24 +11,49 @@
     <%# ↓ここを繰り返す %>
     <% unless @rooms.empty? %>
       <% @rooms.each do |room| %>
-        <a href="/rooms/<%= room.id %>/records" class="to-records">
-          <div class="record">
-            <div class="top-bar">
-              <div class="side-tag"><%= room.date %></div>
-              <div class="member point num">点数</div>
-              <div class="member point num">点数</div>
-              <div class="member point num">点数</div>
-              <div class="member point num">点数</div>
+        <% if Comment.find_by(room_id: room.id).nil? %>
+          <%= form_with model: Comment.new, url: room_comments_path(room_id: room.id), class:"index-form", id:"index-form", local: true do |f| %>
+            <div class="record">
+              <div class="top-bar">
+                <div class="side-tag link-bar">
+                  <a href="/rooms/<%= room.id %>/records" class="to-records"><%= room.date %></a>
+                </div>
+                <div class="member point num"><span class="<%= "red" if room.sueyoshis.all.sum(:s_point) < 0 %>" ><%= room.sueyoshis.all.sum(:s_point) %></span></div>
+                <div class="member point num"><span class="<%= "red" if room.tamuras.all.sum(:t_point) < 0 %>" ><%= room.tamuras.all.sum(:t_point) %></span></div>
+                <div class="member point num"><span class="<%= "red" if room.hamadas.all.sum(:h_point) < 0 %>" ><%= room.hamadas.all.sum(:h_point) %></span></div>
+                <div class="member point num"><span class="<%= "red" if room.yamaguchis.all.sum(:y_point) < 0 %>" ><%= room.yamaguchis.all.sum(:y_point) %></span></div>
+              </div>
+              <div class="under-bar">
+                <div class="side-tag"><%= f.submit "コメントを登録する", class:"comment-submit", id:"comment-submit" %></div>
+                <div class="member point num"><%= f.text_field :s_comment, class:"text-field", id:"s-comment" %></div>
+                <div class="member point num"><%= f.text_field :t_comment, class:"text-field", id:"t-comment" %></div>
+                <div class="member point num"><%= f.text_field :h_comment, class:"text-field", id:"h-comment" %></div>
+                <div class="member point num"><%= f.text_field :y_comment, class:"text-field", id:"y-comment" %></div>
+              </div>
             </div>
-            <div class="under-bar">
-              <div class="side-tag">清</div>
-              <div class="member point num">清算</div>
-              <div class="member point num">清算</div>
-              <div class="member point num">清算</div>
-              <div class="member point num">清算</div>
+          <% end %>
+        <% else %>
+          <%= form_with model: Comment.find_by(room_id: room.id), url: room_comment_path(room_id: room.id, id: Comment.find_by(room_id: room.id).id), class:"index-form", id:"index-form", local: true do |f| %>
+            <div class="record">
+              <div class="top-bar">
+                <div class="side-tag link-bar">
+                  <a href="/rooms/<%= room.id %>/records" class="to-records"><%= room.date %></a>
+                </div>
+                <div class="member point num"><span class="<%= "red" if room.sueyoshis.all.sum(:s_point) < 0 %>" ><%= room.sueyoshis.all.sum(:s_point) %></span></div>
+                <div class="member point num"><span class="<%= "red" if room.tamuras.all.sum(:t_point) < 0 %>" ><%= room.tamuras.all.sum(:t_point) %></span></div>
+                <div class="member point num"><span class="<%= "red" if room.hamadas.all.sum(:h_point) < 0 %>" ><%= room.hamadas.all.sum(:h_point) %></span></div>
+                <div class="member point num"><span class="<%= "red" if room.yamaguchis.all.sum(:y_point) < 0 %>" ><%= room.yamaguchis.all.sum(:y_point) %></span></div>
+              </div>
+              <div class="under-bar">
+                <div class="side-tag"><%= f.submit "コメントを登録する", class:"comment-submit", id:"comment-submit" %></div>
+                <div class="member point num"><%= f.text_field :s_comment, class:"text-field", id:"s-comment" %></div>
+                <div class="member point num"><%= f.text_field :t_comment, class:"text-field", id:"t-comment" %></div>
+                <div class="member point num"><%= f.text_field :h_comment, class:"text-field", id:"h-comment" %></div>
+                <div class="member point num"><%= f.text_field :y_comment, class:"text-field", id:"y-comment" %></div>
+              </div>
             </div>
-          </div>
-        </a>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
     <%# ↑ここまで繰り返す %>
@@ -37,17 +62,17 @@
   <div class="results">
     <div class="result total">
       <div class="side-tag">合計</div>
-      <div class="member num">点数</div>
-      <div class="member num">点数</div>
-      <div class="member num">点数</div>
-      <div class="member num">点数</div>
+      <div class="member num"><span class="<%= "red" if Sueyoshi.all.sum(:s_point) < 0 %>" ><%= Sueyoshi.all.sum(:s_point) %></span></div>
+      <div class="member num"><span class="<%= "red" if Tamura.all.sum(:t_point) < 0 %>" ><%= Tamura.all.sum(:t_point) %></span></div>
+      <div class="member num"><span class="<%= "red" if Hamada.all.sum(:h_point) < 0 %>" ><%= Hamada.all.sum(:h_point) %></span></div>
+      <div class="member num"><span class="<%= "red" if Yamaguchi.all.sum(:y_point) < 0 %>" ><%= Yamaguchi.all.sum(:y_point) %></span></div>
     </div>
     <div class="result">
       <div class="side-tag">平均順位</div>
-      <div class="member num">点数</div>
-      <div class="member num">点数</div>
-      <div class="member num">点数</div>
-      <div class="member num">点数</div>
+      <div class="member num"><%= (Sueyoshi.all.sum(:s_rank)/Sueyoshi.select("id").count.to_f).round(2) %></div>
+      <div class="member num"><%= (Tamura.all.sum(:t_rank)/Tamura.select("id").count.to_f).round(2) %></div>
+      <div class="member num"><%= (Hamada.all.sum(:h_rank)/Hamada.select("id").count.to_f).round(2) %></div>
+      <div class="member num"><%= (Yamaguchi.all.sum(:y_rank)/Yamaguchi.select("id").count.to_f).round(2) %></div>
     </div>
   </div>
 
